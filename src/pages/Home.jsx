@@ -3,8 +3,8 @@ import { getDayTrendingMovies } from 'service/movies-api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Loader } from 'components/Loader/Loader';
 
-const Home = () => {
-  const [movies, setMovies] = useState([])
+export const Home = () => {
+  const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -16,20 +16,17 @@ const Home = () => {
       })
       .catch(error => {
         setError(error.message);
-
       })
       .finally(() => {
         setIsLoading(false);
-      })
+      });
   }, []);
   return (
     <main>
       {isLoading && <Loader />}
-      <h1 style={{ marginBottom: 20px }}>Trending today</h1>
+      <h1 style={{ marginBottom: '20px' }}>Trending today</h1>
       <MoviesList movies={movies} />
-      {error && <h2>{ error}</h2>}
+      {error && <h2>{error}</h2>}
     </main>
-  )
+  );
 };
-
-export default Home;

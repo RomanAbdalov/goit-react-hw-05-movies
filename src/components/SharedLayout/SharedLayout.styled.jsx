@@ -11,7 +11,7 @@ export const Header = styled.header`
   justify-content: space-between;
 `;
 
-export const NavLink = styled(NavLink)`
+export const LinkNav = styled(NavLink)`
   padding: 8px 16px;
   text-decoration: none;
 
